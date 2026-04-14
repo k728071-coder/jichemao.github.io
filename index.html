@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>機車貓聯盟 | 無菜單料理・台灣</title>
+<meta name="description" content="機車貓聯盟無菜單料理，中午提供精緻無菜單便當，晚餐為預約制無菜單套餐。以當季食材為本，每日限量，感受最真實的飲食初心。">
+<meta name="keywords" content="無菜單料理,無菜單便當,預約制餐廳,機車貓聯盟,無菜單,omakase">
+<meta name="robots" content="index, follow">
+<meta name="author" content="機車貓聯盟">
+<meta property="og:title" content="機車貓聯盟 | 無菜單料理">
+<meta property="og:description" content="中午無菜單便當・晚餐預約制無菜單套餐，以季節食材為靈感，每日手作">
+<meta property="og:type" content="restaurant">
+<meta property="og:locale" content="zh_TW">
+<link rel="canonical" href="https://yourdomain.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "機車貓聯盟無菜單料理",
+  "description": "無菜單料理餐廳，中午提供精緻無菜單便當，晚餐為預約制無菜單套餐，以當季食材為本",
+  "url": "https://yourdomain.com",
+  "telephone": "+886-0-0000-0000",
+  "servesCuisine": ["台灣料理", "無菜單料理", "創意料理"],
+  "priceRange": "$$",
+  "currenciesAccepted": "TWD",
+  "paymentAccepted": "Cash, Credit Card",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "南投縣水里鄉民生路102號",
+    "addressLocality": "南投縣",
+    "addressRegion": "南投縣",
+    "addressCountry": "TW"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "11:00",
+      "closes": "14:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Friday","Saturday","Sunday"],
+      "opens": "18:00",
+      "closes": "21:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/youraccount"
+  ]
+}
+</script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  :root {
+    --cream: #F9F5EC;
+    --warm-white: #FDFAF4;
+    --gold-light: #F0D98B;
+    --gold: #C8A84B;
+    --gold-dark: #8B6E2A;
+    --ink: #2A2016;
+    --ink-mid: #5C4D35;
+    --ink-light: #8C7A5E;
+    --border: rgba(139,110,42,0.18);
+    --border-soft: rgba(139,110,42,0.08);
+  }
+ 
+  html { scroll-behavior: smooth; }
+ 
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.9;
+    font-weight: 300;
+  }
+ 
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(249,245,236,0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 0.5px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 17px; font-weight: 500; letter-spacing: 0.12em;
+    color: var(--ink); text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-size: 13px; letter-spacing: 0.08em;
+    color: var(--ink-mid); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-dark); }
+ 
+  /* hamburger */
+  .nav-toggle {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px;
+  }
+  .nav-toggle span {
+    display: block; width: 22px; height: 0.5px;
+    background: var(--ink-mid); transition: all 0.3s;
+  }
+ 
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 5vw 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 80%, rgba(200,168,75,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 20%, rgba(200,168,75,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-kana {
+    font-size: 11px; letter-spacing: 0.3em; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 2rem;
+    opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .hero-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(38px, 7vw, 72px);
+    font-weight: 300; letter-spacing: 0.15em;
+    line-height: 1.3; color: var(--ink);
+    margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 0.9s 0.4s forwards;
+  }
+  .hero-title em {
+    font-style: normal; color: var(--gold-dark);
+    display: block; font-size: 0.55em; letter-spacing: 0.3em;
+    margin-top: 0.5rem; font-weight: 400;
+  }
+  .hero-desc {
+    max-width: 480px;
+    font-size: 14px; color: var(--ink-light);
+    letter-spacing: 0.05em; line-height: 2.2;
+    margin-bottom: 3rem;
+    opacity: 0; animation: fadeUp 0.9s 0.6s forwards;
+  }
+  .hero-divider {
+    width: 40px; height: 0.5px; background: var(--gold);
+    margin: 0 auto 3rem;
+    opacity: 0; animation: fadeUp 0.8s 0.5s forwards;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 0.9s 0.8s forwards;
+  }
+ 
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-block;
+    padding: 12px 32px;
+    font-size: 13px; letter-spacing: 0.12em;
+    text-decoration: none; cursor: pointer; border: none;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: all 0.25s;
+  }
+  .btn-primary {
+    background: var(--gold-dark); color: var(--warm-white);
+  }
+  .btn-primary:hover { background: var(--gold); color: var(--ink); }
+  .btn-outline {
+    background: transparent; color: var(--ink-mid);
+    border: 0.5px solid rgba(139,110,42,0.4);
+  }
+  .btn-outline:hover { background: rgba(200,168,75,0.1); }
+ 
+  .hero-scroll {
+    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    opacity: 0; animation: fadeUp 0.8s 1.2s forwards;
+  }
+  .hero-scroll span { font-size: 10px; letter-spacing: 0.2em; color: var(--ink-light); }
+  .scroll-line {
+    width: 0.5px; height: 36px; background: var(--gold); opacity: 0.5;
+    animation: scrollPulse 2s infinite;
+  }
+ 
+  /* ── SECTION BASE ── */
+  section { padding: 100px 5vw; }
+  .section-label {
+    font-size: 10px; letter-spacing: 0.35em;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 300; letter-spacing: 0.12em;
+    color: var(--ink); margin-bottom: 1.5rem;
+  }
+  .section-body {
+    font-size: 14px; color: var(--ink-light);
+    line-height: 2.3; letter-spacing: 0.04em;
+  }
+  .thin-line {
+    width: 28px; height: 0.5px; background: var(--gold);
+    margin: 1.5rem 0;
+  }
+ 
+  /* ── ABOUT ── */
+  .about {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .about-visual { position: relative; }
+ 
+  /* ── SLIDESHOW ── */
+  .slideshow {
+    width: 100%; aspect-ratio: 3/4;
+    border: 0.5px solid var(--border);
+    overflow: hidden; position: relative;
+    background: var(--warm-white);
+  }
+  .slideshow-track {
+    display: flex; height: 100%;
+    transition: transform 0.7s cubic-bezier(0.77,0,0.18,1);
+  }
+  .slideshow-slide {
+    min-width: 100%; height: 100%;
+    flex-shrink: 0; position: relative;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--warm-white);
+  }
+  .slideshow-slide img {
+  width: 100%; height: 100%; object-fit: contain;
+  display: block;
+  background: var(--cream);
+}
+  /* Placeholder shown when no real image is supplied */
+  .slide-placeholder {
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    padding: 2rem;
+  }
+  .slide-placeholder svg { opacity: 0.2; }
+  .slide-placeholder p {
+    font-size: 11px; letter-spacing: 0.2em;
+    color: var(--ink-light); opacity: 0.5; text-align: center;
+  }
+  /* Prev / Next arrows */
+  .slideshow-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 36px; height: 36px;
+    background: rgba(249,245,236,0.85);
+    border: 0.5px solid var(--border);
+    cursor: pointer; z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .slideshow-btn:hover { background: rgba(249,245,236,1); }
+  .slideshow-btn.prev { left: 12px; }
+  .slideshow-btn.next { right: 12px; }
+  .slideshow-btn svg { width: 14px; height: 14px; stroke: var(--ink-mid); fill: none; stroke-width: 1.5; }
+  /* Dot indicators */
+  .slideshow-dots {
+    position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 7px; z-index: 2;
+  }
+  .slideshow-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--gold); opacity: 0.3;
+    cursor: pointer; transition: opacity 0.3s, transform 0.3s;
+    border: none; padding: 0;
+  }
+  .slideshow-dot.active { opacity: 1; transform: scale(1.3); }
+  /* Slide counter */
+  .slideshow-counter {
+    position: absolute; top: 14px; right: 14px;
+    font-size: 10px; letter-spacing: 0.15em;
+    color: var(--warm-white);
+    background: rgba(42,32,22,0.45);
+    padding: 3px 10px; z-index: 2;
+  }
+  .about-frame-placeholder {
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+  }
+  .about-frame-placeholder svg { opacity: 0.25; }
+  .about-frame-placeholder p {
+    font-size: 11px; letter-spacing: 0.25em;
+    color: var(--ink-light); opacity: 0.5;
+  }
+  .about-accent {
+    position: absolute; top: -16px; right: -16px;
+    width: 80px; height: 80px;
+    border-top: 0.5px solid var(--gold);
+    border-right: 0.5px solid var(--gold);
+    opacity: 0.4;
+  }
+  .about-accent2 {
+    position: absolute; bottom: -16px; left: -16px;
+    width: 60px; height: 60px;
+    border-bottom: 0.5px solid var(--gold);
+    border-left: 0.5px solid var(--gold);
+    opacity: 0.4;
+  }
+ 
+  /* ── MENU CARDS ── */
+  .menu-section { background: var(--warm-white); }
+  .menu-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2px; max-width: 1100px; margin: 3rem auto 0;
+  }
+  .menu-card {
+    background: var(--cream);
+    padding: 52px 48px;
+    position: relative; overflow: hidden;
+    transition: background 0.3s;
+  }
+  .menu-card:hover { background: var(--warm-white); }
+  .menu-card-time {
+    font-size: 10px; letter-spacing: 0.3em;
+    color: var(--gold); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .menu-card-time::after {
+    content: ''; flex: 1; height: 0.5px;
+    background: var(--gold); opacity: 0.3;
+  }
+  .menu-card-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 24px; font-weight: 400; letter-spacing: 0.12em;
+    color: var(--ink); margin-bottom: 1rem;
+  }
+  .menu-card-body {
+    font-size: 13px; color: var(--ink-light); line-height: 2.2;
+  }
+  .menu-card-number {
+    position: absolute; bottom: 32px; right: 40px;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 72px; font-weight: 300;
+    color: var(--gold-light); opacity: 0.4;
+    line-height: 1; letter-spacing: -0.02em;
+    pointer-events: none;
+  }
+  .menu-tag {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 5px 16px;
+    border: 0.5px solid rgba(139,110,42,0.35);
+    font-size: 11px; letter-spacing: 0.15em;
+    color: var(--ink-mid);
+  }
+ 
+  /* ── INFO GRID ── */
+  .info-section { max-width: 1100px; margin: 0 auto; }
+  .info-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 48px; margin-top: 4rem;
+  }
+  .info-item { border-top: 0.5px solid var(--border); padding-top: 2rem; }
+  .info-item-label {
+    font-size: 10px; letter-spacing: 0.3em;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .info-item-value {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px; font-weight: 400; letter-spacing: 0.08em;
+    color: var(--ink); line-height: 2;
+  }
+  .info-item-note {
+    font-size: 12px; color: var(--ink-light);
+    margin-top: 0.5rem; line-height: 1.9;
+  }
+  .info-item a {
+    color: var(--gold-dark); text-decoration: none;
+  }
+  .info-item a:hover { text-decoration: underline; }
+ 
+  /* ── RESERVATION ── */
+  .reservation-section {
+    background: var(--ink);
+    text-align: center;
+    padding: 120px 5vw;
+  }
+  .reservation-section .section-label { color: var(--gold); }
+  .reservation-section .section-title { color: var(--warm-white); }
+  .reservation-section .section-body { color: rgba(253,250,244,0.55); }
+  .reservation-section .thin-line { margin-left: auto; margin-right: auto; }
+  .res-steps {
+    display: flex; justify-content: center; align-items: flex-start;
+    gap: 0; margin: 4rem 0; flex-wrap: wrap;
+  }
+  .res-step {
+    text-align: center; padding: 0 2rem;
+    position: relative;
+  }
+  .res-step:not(:last-child)::after {
+    content: '';
+    position: absolute; top: 18px; right: 0;
+    width: 0.5px; height: 36px;
+    background: rgba(200,168,75,0.25);
+  }
+  .res-step-num {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 32px; color: var(--gold); opacity: 0.6;
+    line-height: 1;
+  }
+  .res-step-label {
+    font-size: 12px; letter-spacing: 0.12em;
+    color: rgba(253,250,244,0.7); margin-top: 0.8rem;
+    line-height: 1.8;
+  }
+  .reservation-section .btn-outline {
+    border-color: rgba(200,168,75,0.4);
+    color: rgba(253,250,244,0.8);
+    margin-top: 1rem;
+  }
+  .reservation-section .btn-outline:hover {
+    background: rgba(200,168,75,0.1);
+    color: var(--gold-light);
+  }
+ 
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    border-top: 0.5px solid rgba(200,168,75,0.15);
+    padding: 60px 5vw 40px;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; gap: 1.5rem;
+  }
+  .footer-logo {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px; font-weight: 400; letter-spacing: 0.2em;
+    color: var(--warm-white);
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-tagline {
+    font-size: 12px; letter-spacing: 0.2em;
+    color: rgba(253,250,244,0.35);
+  }
+  .footer-divider {
+    width: 28px; height: 0.5px;
+    background: rgba(200,168,75,0.3);
+  }
+  .footer-info {
+    font-size: 12px; color: rgba(253,250,244,0.4);
+    line-height: 2.2; letter-spacing: 0.06em;
+    font-style: normal;
+  }
+  .footer-copy {
+    font-size: 10px; color: rgba(253,250,244,0.2);
+    letter-spacing: 0.1em; margin-top: 1rem;
+  }
+ 
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scrollPulse {
+    0%, 100% { transform: scaleY(1); opacity: 0.5; }
+    50% { transform: scaleY(0.6); opacity: 0.2; }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+ 
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 5vw; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: fixed; top: 64px; left: 0; right: 0;
+      background: rgba(249,245,236,0.97);
+      padding: 2rem 5vw;
+      border-bottom: 0.5px solid var(--border);
+      gap: 1.5rem; z-index: 99;
+    }
+    .nav-toggle { display: flex; }
+    .about { grid-template-columns: 1fr; gap: 40px; }
+    .menu-grid { grid-template-columns: 1fr; }
+    .menu-card { padding: 36px 28px; }
+    .info-grid { grid-template-columns: 1fr; gap: 32px; }
+    .res-steps { gap: 1.5rem; flex-direction: column; align-items: center; }
+    .res-step:not(:last-child)::after { display: none; }
+    section { padding: 72px 5vw; }
+    .reservation-section { padding: 80px 5vw; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav role="navigation" aria-label="主選單">
+  <a href="#top" class="nav-logo">機車貓<span>聯盟</span></a>
+  <div class="nav-links" id="nav-links">
+    <a href="#about" onclick="closeMenu()">關於我們</a>
+    <a href="#menu" onclick="closeMenu()">用餐時段</a>
+    <a href="#info" onclick="closeMenu()">餐廳資訊</a>
+    <a href="#reservation" onclick="closeMenu()">預約</a>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="開啟選單" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="top" class="hero" aria-label="主視覺">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <p class="hero-kana">Kikumao Alliance · Omakase</p>
+  <h1 class="hero-title">
+    機車貓聯盟
+    <em>無 菜 單 料 理</em>
+  </h1>
+  <div class="hero-divider" aria-hidden="true"></div>
+  <p class="hero-desc">
+    不設菜單，只問當季。<br>
+    以今日最好的食材，做今日最誠實的料理。<br>
+    中午便當・晚間預約制無菜單料理
+  </p>
+  <div class="hero-cta">
+    <a href="#reservation" class="btn btn-primary">晚餐預約</a>
+    <a href="#menu" class="btn btn-outline">了解用餐方式</a>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span>scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about" aria-labelledby="about-title" style="background: var(--warm-white);">
+  <div class="about">
+    <div class="about-visual">
+      <!--
+        【換照片說明】
+        將每個 .slideshow-slide 裡的 <div class="slide-placeholder"> 整段刪除，
+        改為：<img src="images/photo1.jpg" alt="照片說明">
+        共四張，對應四個 .slideshow-slide。
+        建議圖片尺寸：750x1000px（3:4 直式），放在 images/ 資料夾。
+      -->
+     <div class="slideshow" id="slideshow" role="region" aria-label="餐廳實景幻燈片">
+  <div class="slideshow-track" id="slideshow-track">
+
+    <div class="slideshow-slide">
+      <img src="images/photo1.jpg" alt="機車貓聯盟餐廳實景">
+    </div>
+
+    <div class="slideshow-slide">
+      <img src="images/photo2.jpg" alt="機車貓聯盟餐廳實景">
+    </div>
+
+    <div class="slideshow-slide">
+      <img src="images/photo3.jpg" alt="機車貓聯盟餐廳實景">
+    </div>
+
+    <div class="slideshow-slide">
+      <img src="images/photo4.jpg" alt="機車貓聯盟餐廳實景">
+    </div>
+
+  </div>
+ 
+        <button class="slideshow-btn prev" id="ss-prev" aria-label="上一張">
+          <svg viewBox="0 0 14 14"><polyline points="9,2 4,7 9,12"/></svg>
+        </button>
+        <button class="slideshow-btn next" id="ss-next" aria-label="下一張">
+          <svg viewBox="0 0 14 14"><polyline points="5,2 10,7 5,12"/></svg>
+        </button>
+ 
+        <p class="slideshow-counter" id="ss-counter" aria-live="polite">1 / 4</p>
+ 
+        <div class="slideshow-dots" id="ss-dots" aria-hidden="true">
+          <button class="slideshow-dot active"></button>
+          <button class="slideshow-dot"></button>
+          <button class="slideshow-dot"></button>
+          <button class="slideshow-dot"></button>
+        </div>
+      </div>
+ 
+      <div class="about-accent" aria-hidden="true"></div>
+      <div class="about-accent2" aria-hidden="true"></div>
+    </div>
+
+    <div>
+      <p class="section-label reveal">Our Story</p>
+      <h2 class="section-title reveal" id="about-title">料理，是一種<br>誠實的語言</h2>
+      <div class="thin-line reveal" aria-hidden="true"></div>
+      <div class="section-body reveal">
+        <p>2016 年，我決定卸下主廚的光環，回到故鄉水里。一切的起點，是路邊那台小小的行動餐車。</p>
+        <br>
+        <p>創業這 10 年來，很多事只能靠自己一步步摸索、試錯，跌跌撞撞，卻也讓我離心中的理想模樣越來越近。最後，我決定讓「機車貓」走向沒有固定菜單的模式。因為這間店只有我一個人，我希望能將個人對料理最純粹的熱情與執著，毫無保留地帶給每一位客人。
+</p>
+        <br>
+        <p>機車貓沒有固定的菜單。每一天，我親自走進市場，尋找當季最好的食材，然後回到廚房，決定今天要說什麼樣的故事。對我而言，無菜單料理的本質從來不是限制，而是真正的自由!</p>
+      <br><p>中午，我們將這份心意收攏進精緻的便當裡，讓每位客人帶走一份當日限量的溫暖；入夜後，點起燈，則邀請預約的你們好好坐下來，慢慢品味我為今晚準備的完整詮釋。
+</p><br><p>在機車貓，沒有華麗精緻的裝潢。因為這裡最重要的，只有你、我，與料理最純粹的對話。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MENU ── -->
+<section id="menu" class="menu-section" aria-labelledby="menu-title">
+  <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+    <p class="section-label reveal">How We Serve</p>
+    <h2 class="section-title reveal" id="menu-title">兩種用餐時段</h2>
+  </div>
+
+  <div class="menu-grid reveal">
+    <article class="menu-card">
+      <p class="menu-card-time">午間 11:00 — 14:00</p>
+      <h3 class="menu-card-title">無菜單便當</h3>
+      <p class="menu-card-body">
+        每日限量製作，依當日食材決定內容。<br>
+        主菜一式、配菜數品<br>
+        帶走或內用皆宜。<br><br>
+        無需預約，售完為止。<br>
+        建議 11 點前預訂餐點以確保取得。
+      </p>
+      <span class="menu-tag">每日限量</span>
+      <p class="menu-card-number" aria-hidden="true">午</p>
+    </article>
+
+    <article class="menu-card">
+      <p class="menu-card-time">晚間 18:00 — 21:00</p>
+      <h3 class="menu-card-title">預約制無菜單</h3>
+      <p class="menu-card-body">
+        依當季食材設計<br>
+        賓客於訂位時可告知用餐預算及飲食禁忌<br>
+        <br><br>
+        需提前 3天預約，<br>
+        晚餐一個餐期只服務一組客人。
+      </p>
+      <span class="menu-tag">需提前預約 · 六人開餐</span>
+      <p class="menu-card-number" aria-hidden="true">夜</p>
+    </article>
+  </div>
+
+  <p class="section-body reveal" style="text-align:center; margin-top: 3rem; font-size:13px; color: var(--ink-light);">
+    ※ 菜色每日不同，依時令食材調整，恕無法事先告知內容<br>
+    ※ 如有過敏或嚴重飲食禁忌，請於預約時備註
+  </p>
+</section>
+
+<!-- ── INFO ── -->
+<section id="info" aria-labelledby="info-title" style="background: var(--warm-white);">
+  <div class="info-section">
+    <div style="text-align: center;">
+      <p class="section-label reveal">Find Us</p>
+      <h2 class="section-title reveal" id="info-title">餐廳資訊</h2>
+    </div>
+    <div class="info-grid">
+      <div class="info-item reveal">
+        <p class="info-item-label">營業時間</p>
+        <p class="info-item-value">
+          午間 11:00 — 14:00<br>
+          晚間 18:00 — 21:00
+        </p>
+        <p class="info-item-note"><br>晚餐需提前 3 天 預約</p>
+      </div>
+      <div class="info-item reveal" style="transition-delay: 0.1s;">
+        <p class="info-item-label">聯絡方式</p>
+        <p class="info-item-value">
+          <!-- 填入您的電話與 Instagram -->
+          <a href="tel:+886910487305">電話：0910487305</a><br>
+          <a href="https://lin.ee/QYvPVHV" target="_blank" rel="noopener">加入官方LINE 私訊</a><br>
+          <a href="https://www.instagram.com/jichemao?igsh=MWJmNXB4OTdjOGpjbA%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram 私訊</a>
+        </p>
+        <p class="info-item-note">預約確認後視為有效<br>請於 3 天前完成預約</p>
+      </div>
+      <div class="info-item reveal" style="transition-delay: 0.2s;">
+        <p class="info-item-label">地址</p>
+        <p class="info-item-value">
+          <!-- 填入您的地址 -->
+          南投縣<br>水里鄉民生路102號
+        </p>
+        <p class="info-item-note">
+          <a href="https://maps.google.com/?q=機車貓聯盟" target="_blank" rel="noopener">
+            Google Maps 導航 →
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESERVATION ── -->
+<section id="reservation" class="reservation-section" aria-labelledby="res-title">
+  <p class="section-label reveal">Reservation</p>
+  <h2 class="section-title reveal" id="res-title">預約晚餐</h2>
+  <div class="thin-line reveal" aria-hidden="true"></div>
+  <p class="section-body reveal" style="max-width: 480px; margin: 0 auto 3rem; font-size: 14px;">
+    晚間無菜單料理採預約制。請提前3天與我們聯繫。
+  </p>
+  <p class="section-body reveal" style="max-width: 480px; margin: 0 auto 3rem; font-size: 14px;">
+    一個餐期只服務一組客人，六人以上開餐。
+  </p>
+
+  <div class="res-steps reveal">
+    <div class="res-step">
+      <p class="res-step-num">01</p>
+      <p class="res-step-label">選定日期<br>確認人數</p>
+    </div>
+    <div class="res-step">
+      <p class="res-step-num">02</p>
+      <p class="res-step-label">來電或私訊<br>告知禁忌</p>
+    </div>
+    <div class="res-step">
+      <p class="res-step-num">03</p>
+      <p class="res-step-label">收到確認<br>完成預約</p>
+    </div>
+    <div class="res-step">
+      <p class="res-step-num">04</p>
+      <p class="res-step-label">準時赴宴<br>靜候今日</p>
+    </div>
+  </div>
+
+  <a href="tel:+886910487305" class="btn btn-outline reveal">立即預約 →</a>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer role="contentinfo">
+  <p class="footer-logo">機車貓<span>聯盟</span></p>
+  <p class="footer-tagline">無菜單料理 · Omakase Restaurant</p>
+  <div class="footer-divider" aria-hidden="true"></div>
+  <address class="footer-info">
+    午間無菜單便當 11:00–14:00　│　晚間預約制無菜單料理 18:00–21:00<br>
+    　│　晚餐需提前 3 天 預約<br>
+    <!-- 填入地址 -->南投縣水里鄉民生路102號
+  </address>
+  <p class="footer-copy">© 2025 機車貓聯盟 All rights reserved.</p>
+</footer>
+
+<script>
+  /* ── Scroll reveal ── */
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  /* ── Slideshow ── */
+  const ssTrack = document.getElementById('slideshow-track');
+  const ssDots  = document.querySelectorAll('.slideshow-dot');
+  const ssCounter = document.getElementById('ss-counter');
+  let ssCurrent = 0;
+  const ssTotal = document.querySelectorAll('.slideshow-slide').length;
+
+  function ssGoTo(n) {
+    ssCurrent = (n + ssTotal) % ssTotal;
+    ssTrack.style.transform = `translateX(-${ssCurrent * 100}%)`;
+    ssDots.forEach((d, i) => d.classList.toggle('active', i === ssCurrent));
+    if (ssCounter) ssCounter.textContent = `${ssCurrent + 1} / ${ssTotal}`;
+  }
+
+  const ssPrev = document.getElementById('ss-prev');
+  const ssNext = document.getElementById('ss-next');
+  if (ssPrev) ssPrev.addEventListener('click', () => ssGoTo(ssCurrent - 1));
+  if (ssNext) ssNext.addEventListener('click', () => ssGoTo(ssCurrent + 1));
+  ssDots.forEach((d, i) => d.addEventListener('click', () => ssGoTo(i)));
+  setInterval(() => ssGoTo(ssCurrent + 1), 5000);
+
+  /* ── Mobile nav toggle ── */
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  function closeMenu() {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+  /* Close menu on outside click */
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !links.contains(e.target)) {
+      closeMenu();
+    }
+  });
+</script>
+
+</body>
+</html>
